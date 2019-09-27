@@ -1,0 +1,15 @@
+<div class="card">
+  <div class="card-header">
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">Filter</span>
+      </div>
+      <input type="text" class="form-control" aria-describedby="filter">
+    </div>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item" [ngClass]="{ done: task.done }" *ngFor="let task of tasks" >
+      {{ task.description }}
+    </li>
+  </ul>
+</div>
