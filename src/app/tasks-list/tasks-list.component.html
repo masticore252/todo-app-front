@@ -8,8 +8,14 @@
     </div>
   </div>
   <ul class="list-group list-group-flush">
-    <li class="list-group-item" [ngClass]="{ done: task.done }" *ngFor="let task of tasks" >
-      {{ task.description }}
+    <li class="list-group-item" *ngFor="let task of tasks" >
+        <div class="form-check form-check-inline">
+          <input [(ngModel)]="task.done" type="checkbox" class="form-check-input" id="task-{{ task.id }}" >
+          <label class="form-check-label" [ngClass]="{ done: task.done }" for="task-{{ task.id }}">
+            {{ task.description }}
+          </label>
+        </div>
+        <a *ngIf="task.hasFile" [href]="getAttachmentUrl(task.id)" class="btn btn-dark float-right"> Download File </a>
     </li>
   </ul>
 </div>

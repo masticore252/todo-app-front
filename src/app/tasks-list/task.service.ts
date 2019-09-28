@@ -18,4 +18,9 @@ export class TaskService {
       .pipe(catchError(e => throwError(e) ))
       .pipe(map( response => response['data'] as Task[] ))
   }
+
+  getAttachmentUrl(task: Task){
+    return this.url + "/" + task.id +"/attachment"
+  }
+
 }

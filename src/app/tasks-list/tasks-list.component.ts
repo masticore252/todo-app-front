@@ -17,4 +17,9 @@ export class TasksListComponent implements OnInit {
     this.taskService.getTasks().subscribe( tasks => this.tasks = tasks )
   }
 
+  getAttachmentUrl(task: Task): string {
+    return this.taskService.getAttachmentUrl(task)
+  }
+
+
 }
