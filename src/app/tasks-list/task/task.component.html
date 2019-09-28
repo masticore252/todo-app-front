@@ -1,0 +1,7 @@
+<div class="form-check form-check-inline">
+  <input [(ngModel)]="task.done" type="checkbox" class="form-check-input" id="task-{{ task.id }}-checkbox" >
+  <label [ngClass]="{ done: task.done }" class="form-check-label"  for="task-{{ task.id }}-checkbox">
+    {{ task.description }}
+  </label>
+</div>
+<a *ngIf="task.hasFile" [href]="getAttachmentUrl(task.id)" class="btn btn-ouline-dark float-right"> Download File </a>
