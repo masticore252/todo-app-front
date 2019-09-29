@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { map, catchError } from "rxjs/operators";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { Task } from './task';
+import { Task } from './task/task';
 
 @Injectable({
   providedIn: 'root'
