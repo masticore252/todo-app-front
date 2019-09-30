@@ -8,12 +8,14 @@ import { FormsModule } from "@angular/forms";
 import { TaskService } from './tasks-list/task.service';
 import { AppRoutingModule } from './app-routing.module';
 import { TaskComponent } from './tasks-list/task/task.component';
+import { TaskFormComponent } from './task-form/task-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TasksListComponent,
     TaskComponent,
+    TaskFormComponent,
   ],
   imports: [
     BrowserModule,

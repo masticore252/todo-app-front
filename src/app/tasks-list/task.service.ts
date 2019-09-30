@@ -23,4 +23,14 @@ export class TaskService {
     return this.url + "/" + taskId +"/attachment"
   }
 
+  newTask(task: Task): Observable<Task> {
+    return this.http.post(this.url, { description: task.description })
+      .pipe(catchError( e => {
+        console.log(e.error.errors.description)
+        alert(e.error.errors.description.join(', '))
+        return throwError(e)
+      }))
+      .pipe(map( response => response['data'] as Task))
+  }
+
 }

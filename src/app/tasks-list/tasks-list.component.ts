@@ -17,5 +17,10 @@ export class TasksListComponent implements OnInit {
     this.taskService.getTasks().subscribe( tasks => this.tasks = tasks )
   }
 
+  addNewTask(task: Task) {
+    this.tasks.push(task);
+    this.taskService.getTasks().subscribe( tasks => this.tasks = tasks )
+  }
+
 
 }
