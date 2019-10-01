@@ -9,6 +9,7 @@ import { TaskService } from './tasks-list/task.service';
 import { AppRoutingModule } from './app-routing.module';
 import { TaskComponent } from './tasks-list/task/task.component';
 import { TaskFormComponent } from './task-form/task-form.component';
+import { AlertService } from './alert.service';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,10 @@ import { TaskFormComponent } from './task-form/task-form.component';
     FormsModule,
     AppRoutingModule,
   ],
-  providers: [TaskService],
+  providers: [
+    TaskService,
+    AlertService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

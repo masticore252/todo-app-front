@@ -7,4 +7,7 @@
         <app-task [task]="task" (taskUpdateEvent)="updateTask($event)"></app-task>
     </li>
   </ul>
+  <div class="card-footer">
+    <a class="btn btn-danger" (click)="clearDoneTasks()" >Clear Done Tasks</a>
+  </div>
 </div>

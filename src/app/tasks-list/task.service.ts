@@ -42,4 +42,11 @@ export class TaskService {
 
   }
 
+  clearDoneTasks(): Observable<boolean> {
+    return this.http.delete(this.url+"/delete_done", { observe: 'response' })
+    .pipe(map( response => response['status'] == 200 ))
+    .pipe(catchError( e => throwError(e) ))
+
+  }
+
 }
