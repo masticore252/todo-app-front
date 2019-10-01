@@ -1,7 +1,8 @@
-<div class="form-check form-check-inline">
-  <input [(ngModel)]="task.done" (change)="toggleState($event)" type="checkbox" class="form-check-input" id="task-{{ task.id }}-checkbox" >
-  <label [ngClass]="{ done: task.done }" class="form-check-label"  for="task-{{ task.id }}-checkbox">
-    {{ task.description }}
+<div class="form-check form-check-inline w-100">
+  <input [(ngModel)]="task.done" (change)="toggleState($event)" type="checkbox" class="form-check-input d-none" id="task-{{ task.id }}-checkbox" >
+  <label [ngClass]="{ 'done text-secondary': task.done }" class="form-check-label w-100"  for="task-{{ task.id }}-checkbox">
+    <i class="custom-checkbox mx-1"></i>
+    <div class="d-inline-flex">{{ task.description }}</div>
+    <a *ngIf="task.hasFile" [href]="getAttachmentUrl(task.id)" class="btn btn-outline-dark float-right clearfix"> Download File </a>
   </label>
 </div>
-<a *ngIf="task.hasFile" [href]="getAttachmentUrl(task.id)" class="btn btn-outline-dark float-right"> Download File </a>
