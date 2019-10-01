@@ -25,9 +25,9 @@ export class TaskComponent implements OnInit {
   }
 
   toggleState(event: Event): void {
-    this.taskService.updateTask(this.task).subscribe( task => {
-      this.taskUpdateEvent.emit(task)
-    })
+    this.taskService.updateTask(this.task).subscribe(
+      (task) => this.taskUpdateEvent.emit(task) ),
+      (e) => this.task = {...this.task, done: !this.task.done }
   }
 
 }

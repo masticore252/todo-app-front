@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { TaskService } from '../tasks-list/task.service';
 import { Task } from '../tasks-list/task/task';
-import { Router } from '@angular/router';
+import { AlertService } from '../alert.service';
 
 @Component({
   selector: 'app-task-form',
@@ -18,15 +18,16 @@ export class TaskFormComponent implements OnInit {
 
   model: Task = { id: null, description: "", done: false, hasFile: false }
 
-  constructor( private taskService: TaskService, private router: Router) { }
+  constructor( private taskService: TaskService, private alertService: AlertService ) { }
 
   ngOnInit() {
   }
 
   onSubmit(){
-    this.taskService.newTask(this.model).subscribe( task => {
-      this.newTaskEvent.emit(task)
-    })
+    this.taskService.newTask(this.model).subscribe(
+      (task) => this.newTaskEvent.emit(task),
+      (e) => this.alertService.modal({ text: e.error.error.join(', '), type: "error" })
+    )
   }
 
 }

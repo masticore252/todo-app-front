@@ -15,12 +15,18 @@ export class TasksListComponent implements OnInit {
   constructor( private taskService: TaskService, private alertService: AlertService) { }
 
   ngOnInit() {
-    this.taskService.getTasks().subscribe( tasks => this.tasks = tasks )
+    this.taskService.getTasks().subscribe(
+      (tasks) => this.tasks = tasks,
+      (e) => this.alertService.modal({ text: e.error.error.join(', '), type: 'error' })
+    )
   }
 
   addNewTask(task: Task) {
     this.tasks.push(task);
-    this.taskService.getTasks().subscribe( tasks => this.tasks = tasks )
+    this.taskService.getTasks().subscribe(
+      (tasks) => this.tasks = tasks,
+      (e) => this.alertService.modal({ text: e.error.error.join(', '), type: 'error' })
+    )
   }
 
   updateTask(updatedTask: Task) {
