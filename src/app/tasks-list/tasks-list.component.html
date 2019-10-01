@@ -4,7 +4,7 @@
   </div>
   <ul class="list-group list-group-flush">
     <li class="list-group-item" *ngFor="let task of tasks" >
-        <app-task [task]="task"></app-task>
+        <app-task [task]="task" (taskUpdateEvent)="updateTask($event)"></app-task>
     </li>
   </ul>
 </div>

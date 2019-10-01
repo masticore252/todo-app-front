@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Task } from './task';
 import { TaskService } from '../task.service';
 
@@ -12,6 +12,9 @@ export class TaskComponent implements OnInit {
   @Input()
   task: Task
 
+  @Output()
+  taskUpdateEvent: EventEmitter<Task> = new EventEmitter<Task>()
+
   constructor( private taskService: TaskService) { }
 
   ngOnInit() {
@@ -19,6 +22,12 @@ export class TaskComponent implements OnInit {
 
   getAttachmentUrl(taskId: number): string {
     return this.taskService.getAttachmentUrl(taskId)
+  }
+
+  toggleState(event: Event): void {
+    this.taskService.updateTask(this.task).subscribe( task => {
+      this.taskUpdateEvent.emit(task)
+    })
   }
 
 }

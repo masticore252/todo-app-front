@@ -1,5 +1,5 @@
 <div class="form-check form-check-inline">
-  <input [(ngModel)]="task.done" type="checkbox" class="form-check-input" id="task-{{ task.id }}-checkbox" >
+  <input [(ngModel)]="task.done" (change)="toggleState($event)" type="checkbox" class="form-check-input" id="task-{{ task.id }}-checkbox" >
   <label [ngClass]="{ done: task.done }" class="form-check-label"  for="task-{{ task.id }}-checkbox">
     {{ task.description }}
   </label>

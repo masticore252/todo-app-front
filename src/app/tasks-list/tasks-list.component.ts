@@ -22,5 +22,9 @@ export class TasksListComponent implements OnInit {
     this.taskService.getTasks().subscribe( tasks => this.tasks = tasks )
   }
 
+  updateTask(updatedTask: Task) {
+    this.tasks.map(task => { task.id == updatedTask.id ? updatedTask : task })
+  }
+
 
 }
