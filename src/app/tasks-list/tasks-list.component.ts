@@ -23,7 +23,7 @@ export class TasksListComponent implements OnInit {
   }
 
   updateTask(updatedTask: Task) {
-    this.tasks.map(task => { task.id == updatedTask.id ? updatedTask : task })
+    this.tasks = this.tasks.map(task =>  task.id == updatedTask.id ? updatedTask : task )
   }
 
 
