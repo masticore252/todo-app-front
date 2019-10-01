@@ -36,7 +36,7 @@ export class TaskService {
   updateTask(task: Task): Observable<Task> {
     // return Observable.create() as Observable<Task>
 
-    return this.http.post(this.url+"/"+task.id, { description: task.description, done: task.done })
+    return this.http.put(this.url+"/"+task.id, { description: task.description, done: task.done })
     .pipe(map( response => response['data'] as Task ))
     .pipe(catchError( e => throwError(e) ))
 
