@@ -1,9 +1,17 @@
-<div class="form-check form-check-inline w-100">
-  <input [(ngModel)]="task.done" (change)="toggleState($event)" type="checkbox" class="form-check-input d-none" id="task-{{ task.id }}-checkbox" >
-  <label [ngClass]="{ 'done text-secondary': task.done }" class="form-check-label w-100"  for="task-{{ task.id }}-checkbox">
-    <i class="custom-checkbox mx-1"></i>
-    <div class="d-inline-flex">{{ task.description }}</div>
-    <a *ngIf="task.hasFile" [href]="getAttachmentUrl(task.id)" class="btn btn-outline-dark float-right clearfix"> Download File </a>
-    <app-task-file-upload *ngIf="!task.hasFile" [task]="task" (fileUploadedEvent)="fileUploaded($event)"></app-task-file-upload>
-  </label>
+<div class="row">
+  <div class="col-sm-8">
+    <div class="form-check form-check-inline">
+      <input [(ngModel)]="task.done" (change)="toggleState($event)" type="checkbox" class="form-check-input d-none" id="task-{{ task.id }}-checkbox" >
+      <label [ngClass]="{ 'done text-secondary': task.done }" class="form-check-label w-100"  for="task-{{ task.id }}-checkbox">
+        <i class="custom-checkbox mx-1"></i>
+        <div class="d-inline-flex">{{ task.description }}</div>
+
+      </label>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <a *ngIf="task.hasFile" [href]="getAttachmentUrl(task.id)" class="btn btn-outline-dark "> &#11123; </a>
+    <app-task-file-upload [task]="task" (fileUploadedEvent)="fileUploaded($event)"></app-task-file-upload>
+  </div>
 </div>
+

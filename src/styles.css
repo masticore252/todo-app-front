@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+.drop-zone, .drop-zone *  {
+  max-height: 40px
+}
+
+.drop-zone {
+  border-radius: 10px 10px 10px 10px;
+  -moz-border-radius: 10px 10px 10px 10px;
+  -webkit-border-radius: 10px 10px 10px 10px;
+  border: 1px dashed #8f8f8f;
+}

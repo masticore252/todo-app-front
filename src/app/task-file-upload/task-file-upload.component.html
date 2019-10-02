@@ -4,9 +4,8 @@
     (onFileOver)="fileOver($event)"
     (onFileLeave)="fileLeave($event)"
     accept="jpeg,png,pdf"
+    dropZoneLabel="drop attachment"
+    dropZoneClassName="drop-zone px-2"
   >
-    <ng-template ngx-file-drop-content-tmp >
-      <span (click)="openFileSelector()">Drop Attachment</span>
-    </ng-template>
   </ngx-file-drop>
 </div>
