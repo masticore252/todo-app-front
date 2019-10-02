@@ -1,0 +1,12 @@
+<div class="float-right clearfix">
+  <ngx-file-drop
+    (onFileDrop)="dropped($event)"
+    (onFileOver)="fileOver($event)"
+    (onFileLeave)="fileLeave($event)"
+    accept="jpeg,png,pdf"
+  >
+    <ng-template ngx-file-drop-content-tmp >
+      <span (click)="openFileSelector()">Drop Attachment</span>
+    </ng-template>
+  </ngx-file-drop>
+</div>

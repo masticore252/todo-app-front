@@ -10,6 +10,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { TaskComponent } from './tasks-list/task/task.component';
 import { TaskFormComponent } from './task-form/task-form.component';
 import { AlertService } from './alert.service';
+import { NgxFileDropModule } from 'ngx-file-drop';
+import { TaskFileUploadComponent } from './task-file-upload/task-file-upload.component';
 
 @NgModule({
   declarations: [
@@ -17,12 +19,14 @@ import { AlertService } from './alert.service';
     TasksListComponent,
     TaskComponent,
     TaskFormComponent,
+    TaskFileUploadComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
     AppRoutingModule,
+    NgxFileDropModule,
   ],
   providers: [
     TaskService,

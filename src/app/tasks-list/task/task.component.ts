@@ -30,4 +30,10 @@ export class TaskComponent implements OnInit {
       (e) => this.task = {...this.task, done: !this.task.done }
   }
 
+  fileUploaded(task: Task){
+    this.task = { ...this.task, hasFile: task.hasFile }
+    this.taskUpdateEvent.emit(this.task)
+  }
+
+
 }

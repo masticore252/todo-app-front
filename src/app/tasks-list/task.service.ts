@@ -23,6 +23,20 @@ export class TaskService {
     return this.url + "/" + taskId +"/attachment"
   }
 
+  uploadAttachment( taskId: number, file: File ): Observable<boolean> {
+
+    const url = `${this.url}/${taskId}/attachment`
+
+    const body = new FormData()
+    body.append('attachment', file, file.name)
+    body.append('mime-type', file.type)
+
+    return this.http.post(url, body).pipe(map(
+      (response) => !response['error']
+    ))
+
+  }
+
   newTask(task: Task): Observable<Task> {
     return this.http.post(this.url, { description: task.description })
       .pipe(catchError( e => throwError(e) ))

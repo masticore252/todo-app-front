@@ -4,5 +4,6 @@
     <i class="custom-checkbox mx-1"></i>
     <div class="d-inline-flex">{{ task.description }}</div>
     <a *ngIf="task.hasFile" [href]="getAttachmentUrl(task.id)" class="btn btn-outline-dark float-right clearfix"> Download File </a>
+    <app-task-file-upload *ngIf="!task.hasFile" [task]="task" (fileUploadedEvent)="fileUploaded($event)"></app-task-file-upload>
   </label>
 </div>
