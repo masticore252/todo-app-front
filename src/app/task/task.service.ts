@@ -3,13 +3,14 @@ import { Observable, throwError } from 'rxjs';
 import { map, catchError } from "rxjs/operators";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Task } from './task';
+import { environment } from "../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class TaskService {
 
-  private url = "http://localhost:8000/api/tasks";
+  private url = environment.backendUrl;
 
   constructor( private http: HttpClient ) { }
 
