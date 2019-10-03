@@ -10,7 +10,7 @@ import { environment } from "../../environments/environment";
 })
 export class TaskService {
 
-  private url = environment.backendUrl;
+  private url = environment.backendUrl + '/tasks';
 
   constructor( private http: HttpClient ) { }
 
