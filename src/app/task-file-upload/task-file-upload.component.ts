@@ -1,8 +1,8 @@
 import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 import { NgxFileDropEntry, FileSystemFileEntry, FileSystemDirectoryEntry } from 'ngx-file-drop';
-import { TaskService } from '../tasks-list/task.service';
+import { TaskService } from '../task/task.service';
 import { AlertService } from '../alert.service';
-import { Task } from '../tasks-list/task/task';
+import { Task } from '../task/task';
 import { HttpHeaders } from '@angular/common/http';
 
 @Component({
